@@ -142,7 +142,7 @@ public class ControllerLayoutScreen extends Screen
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int mouseButton)
+    public boolean mouseClicked(double mouseX, double mouseY, int mouseButton, boolean isDoubleClick)
     {
         if(mouseButton == 0 && this.configureButton == -1)
         {
@@ -153,7 +153,7 @@ public class ControllerLayoutScreen extends Screen
                 return true;
             }
         }
-        return super.mouseClicked(mouseX, mouseY, mouseButton);
+        return super.mouseClicked(mouseX, mouseY, mouseButton, isDoubleClick);
     }
 
     @Override

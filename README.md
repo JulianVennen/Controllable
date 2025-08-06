@@ -30,7 +30,8 @@ Some features are not available on older versions of Controllable. It is recomme
 
 ## Building 
 
-TODO
+- Build Framework locally by running `./gradlew publishToMavenLocal` in https://github.com/JulianVennen/Framework/tree/multiloader/1.21.9
+- Build neoform?
 
 ## Developers
 

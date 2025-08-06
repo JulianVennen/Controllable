@@ -206,14 +206,14 @@ public class ButtonBindingList extends TabSelectionList<TabSelectionList.BaseIte
         }
 
         @Override
-        public boolean mouseClicked(double mouseX, double mouseY, int button)
+        public boolean mouseClicked(double mouseX, double mouseY, int button, boolean isDoubleClick)
         {
             Controller controller = Controllable.getController();
             if(!this.resetButton.isHovered() && controller != null && controller.isBeingUsed())
             {
-                this.bindingButton.mouseClicked(this.bindingButton.getX(), this.bindingButton.getY(), button);
+                this.bindingButton.mouseClicked(this.bindingButton.getX(), this.bindingButton.getY(), button, isDoubleClick);
             }
-            return super.mouseClicked(mouseX, mouseY, button);
+            return super.mouseClicked(mouseX, mouseY, button, isDoubleClick);
         }
 
         @Override

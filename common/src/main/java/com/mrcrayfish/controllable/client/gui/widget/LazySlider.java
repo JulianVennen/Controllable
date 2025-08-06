@@ -40,9 +40,9 @@ public class LazySlider extends AbstractSliderButton
     }
 
     @Override
-    public void onClick(double mouseX, double mouseY)
+    public void onClick(double mouseX, double mouseY, boolean isDoubleClick)
     {
-        super.onClick(mouseX, mouseY);
+        super.onClick(mouseX, mouseY, isDoubleClick);
         this.pressed = true;
     }
 

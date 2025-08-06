@@ -154,7 +154,7 @@ public abstract class ListMenuScreen extends Screen
     protected abstract List<Item> constructEntries();
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button)
+    public boolean mouseClicked(double mouseX, double mouseY, int button, boolean isDoubleClick)
     {
         if(ScreenHelper.isMouseWithin(10, 13, 23, 23, (int) mouseX, (int) mouseY))
         {
@@ -162,7 +162,7 @@ public abstract class ListMenuScreen extends Screen
             this.handleComponentClicked(style);
             return true;
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(mouseX, mouseY, button, isDoubleClick);
     }
 
     protected class EntryList extends ContainerObjectSelectionList<Item>

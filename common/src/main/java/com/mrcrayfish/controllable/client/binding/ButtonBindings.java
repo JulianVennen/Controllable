@@ -271,7 +271,8 @@ public class ButtonBindings
     public static final ButtonBinding PICKUP_ITEM = new ButtonBinding(Buttons.A, "controllable.key.pickup_item", "key.categories.inventory", InScreenContext.INSTANCE, OnPressAndReleaseHandler.create(context -> {
         return Optional.of(() -> {
             context.screen().ifPresent(screen -> {
-                MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_LEFT);
+                // TODO: fix double click parameter
+                MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_LEFT, false);
                 // If invokeMouseClick closed the screen, and the button is the same as the jump
                 // button, the player will jump as soon as the screen is closed. To prevent this,
                 // the jump binding is simply unpressed.
@@ -297,7 +298,8 @@ public class ButtonBindings
             context.screen().ifPresent(screen -> {
                 context.player().ifPresent(player -> {
                     if(player.inventoryMenu.getCarried().isEmpty()) {
-                        MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_LEFT);
+                        // TODO: fix double click parameter
+                        MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_LEFT, false);
                         if(Config.CLIENT.options.quickMoveSound.get()) {
                             context.minecraft().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.WOODEN_BUTTON_CLICK_ON, 1.75F, 1.0F));
                         }
@@ -312,7 +314,8 @@ public class ButtonBindings
     public static final ButtonBinding SPLIT_STACK = new ButtonBinding(Buttons.X, "controllable.key.split_stack", "key.categories.inventory", InScreenContext.INSTANCE, OnPressAndReleaseHandler.create(context -> {
         return Optional.of(() -> {
             context.screen().ifPresent(screen -> {
-                MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_RIGHT);
+                // TODO: fix double click parameter
+                MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_RIGHT, false);
             });
         });
     }, context -> {
@@ -364,7 +367,7 @@ public class ButtonBindings
     }));
 
     public static final ButtonBinding DEBUG_INFO = new ButtonBinding(-1, "controllable.key.debug_info", "key.categories.misc", InGameContext.INSTANCE, OnPressHandler.create(context -> {
-        return Optional.of(() -> context.minecraft().getDebugOverlay().toggleOverlay());
+        return Optional.of(() -> context.minecraft().getDebugOverlay().toggleFpsCharts());
     }));
 
     public static final ButtonBinding RADIAL_MENU = new ButtonBinding(Buttons.DPAD_RIGHT, "controllable.key.radial_menu", "key.categories.gameplay", InGameContext.INSTANCE, OnPressHandler.create(context -> {

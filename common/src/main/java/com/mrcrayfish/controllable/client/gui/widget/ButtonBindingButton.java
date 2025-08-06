@@ -44,7 +44,7 @@ public class ButtonBindingButton extends Button
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button)
+    public boolean mouseClicked(double mouseX, double mouseY, int button, boolean isDoubleClick)
     {
         if(this.active && this.visible && this.isMouseOver(mouseX, mouseY))
         {

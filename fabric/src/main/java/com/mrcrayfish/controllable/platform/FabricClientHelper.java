@@ -106,7 +106,7 @@ public class FabricClientHelper implements IClientHelper
     }
 
     @Override
-    public void sendScreenMouseClick(Screen screen, double mouseX, double mouseY, int button)
+    public void sendScreenMouseClick(Screen screen, double mouseX, double mouseY, int button, boolean isDoubleClick)
     {
         if(!ScreenMouseEvents.allowMouseClick(screen).invoker().allowMouseClick(screen, mouseX, mouseY, button))
             return;
@@ -114,11 +114,11 @@ public class FabricClientHelper implements IClientHelper
         ScreenMouseEvents.beforeMouseClick(screen).invoker().beforeMouseClick(screen, mouseX, mouseY, button);
         if(Controllable.isArchitecturyLoaded())
         {
-            ArchitecturySupport.sendScreenMouseClick(screen, mouseX, mouseY, button);
+            ArchitecturySupport.sendScreenMouseClick(screen, mouseX, mouseY, button, isDoubleClick);
         }
         else
         {
-            screen.mouseClicked(mouseX, mouseY, button);
+            screen.mouseClicked(mouseX, mouseY, button, isDoubleClick);
         }
         ScreenMouseEvents.afterMouseClick(screen).invoker().afterMouseClick(screen, mouseX, mouseY, button);
     }

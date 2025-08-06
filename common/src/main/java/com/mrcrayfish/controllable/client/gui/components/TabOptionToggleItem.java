@@ -106,11 +106,11 @@ public class TabOptionToggleItem extends TabOptionBaseItem implements Navigatabl
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button)
+    public boolean mouseClicked(double mouseX, double mouseY, int button, boolean isDoubleClick)
     {
         Controller controller = Controllable.getController();
         if(controller == null || !controller.isBeingUsed())
-            return super.mouseClicked(mouseX, mouseY, button);
+            return super.mouseClicked(mouseX, mouseY, button, isDoubleClick);
 
         if(button != GLFW.GLFW_MOUSE_BUTTON_1)
             return false;
@@ -122,7 +122,7 @@ public class TabOptionToggleItem extends TabOptionBaseItem implements Navigatabl
             return false;
 
         this.toggle.playDownSound(Minecraft.getInstance().getSoundManager());
-        this.toggle.onClick(mouseX, mouseY);
+        this.toggle.onClick(mouseX, mouseY, isDoubleClick);
         return true;
     }
 }

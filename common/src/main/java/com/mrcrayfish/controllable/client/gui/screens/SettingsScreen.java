@@ -151,11 +151,11 @@ public class SettingsScreen extends Screen
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button)
+    public boolean mouseClicked(double mouseX, double mouseY, int button, boolean isDoubleClick)
     {
         if(this.selectedBinding != null)
             return true;
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(mouseX, mouseY, button, isDoubleClick);
     }
 
     @Override

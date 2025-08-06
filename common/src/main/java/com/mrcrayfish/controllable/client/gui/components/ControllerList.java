@@ -109,7 +109,7 @@ public class ControllerList extends TabSelectionList<ControllerList.ControllerEn
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button)
+    public boolean mouseClicked(double mouseX, double mouseY, int button, boolean isDoubleClick)
     {
         if(this.footerText != null)
         {
@@ -121,7 +121,7 @@ public class ControllerList extends TabSelectionList<ControllerList.ControllerEn
                 Objects.requireNonNull(Minecraft.getInstance().screen).handleComponentClicked(this.footerSubText.getStyle());
             }
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(mouseX, mouseY, button, isDoubleClick);
     }
 
     @Override
@@ -223,7 +223,7 @@ public class ControllerList extends TabSelectionList<ControllerList.ControllerEn
         }
 
         @Override
-        public boolean mouseClicked(double mouseX, double mouseY, int button)
+        public boolean mouseClicked(double mouseX, double mouseY, int button, boolean isDoubleClick)
         {
             if(button == GLFW.GLFW_MOUSE_BUTTON_1)
             {

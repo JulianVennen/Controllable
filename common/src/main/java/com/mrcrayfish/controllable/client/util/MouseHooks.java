@@ -49,7 +49,7 @@ public class MouseHooks
      * @param screen the screen instance
      * @param button the button to click with
      */
-    public static void invokeMouseClick(Screen screen, int button)
+    public static void invokeMouseClick(Screen screen, int button, boolean isDoubleClick)
     {
         if(screen != null)
         {
@@ -62,7 +62,7 @@ public class MouseHooks
                     return;
                 }
             }
-            invokeMouseClick(screen, button, screenCursorX, screenCursorY);
+            invokeMouseClick(screen, button, screenCursorX, screenCursorY, isDoubleClick);
         }
     }
 
@@ -75,13 +75,13 @@ public class MouseHooks
      * @param cursorScreenX the x position of the cursor in screen space
      * @param cursorScreenY the y position of the cursor in screen space
      */
-    public static void invokeMouseClick(Screen screen, int button, double cursorScreenX, double cursorScreenY)
+    public static void invokeMouseClick(Screen screen, int button, double cursorScreenX, double cursorScreenY, boolean isDoubleClick)
     {
         if(screen != null)
         {
             ClientServices.CLIENT.setActiveMouseButton(button);
             ClientServices.CLIENT.setLastMouseEventTime(Blaze3D.getTime());
-            ClientServices.CLIENT.sendScreenMouseClick(screen, cursorScreenX, cursorScreenY, button);
+            ClientServices.CLIENT.sendScreenMouseClick(screen, cursorScreenX, cursorScreenY, button, isDoubleClick);
         }
     }
 

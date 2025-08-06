@@ -806,7 +806,8 @@ public class InputHandler
                 int screenLeft = ClientServices.CLIENT.getScreenLeft(screen);
                 int screenTop = ClientServices.CLIENT.getScreenTop(screen);
                 if(menu.getCarried().isEmpty()) {
-                    MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_LEFT, screenLeft + slot.x + 8, screenTop + slot.y + 8);
+                    // TODO: fix double click parameter
+                    MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_LEFT, screenLeft + slot.x + 8, screenTop + slot.y + 8, false);
                 } else {
                     MouseHooks.invokeMouseReleased(screen, GLFW.GLFW_MOUSE_BUTTON_LEFT, screenLeft + slot.x + 8, screenTop + slot.y + 8);
                 }

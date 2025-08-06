@@ -183,11 +183,11 @@ public class RadialItemList extends AbstractSelectionList<RadialItemList.ButtonB
         }
 
         @Override
-        public boolean mouseClicked(double mouseX, double mouseY, int button)
+        public boolean mouseClicked(double mouseX, double mouseY, int button, boolean isDoubleClick)
         {
             RadialItemList.this.setSelected(this);
             RadialItemList.this.selectedBinding = this.data.getBinding();
-            return super.mouseClicked(mouseX, mouseY, button);
+            return super.mouseClicked(mouseX, mouseY, button, isDoubleClick);
         }
 
         @Override

@@ -88,7 +88,7 @@ public class NeoForgeClientHelper implements IClientHelper
     {
         if(!ClientHooks.onScreenMouseClickedPre(screen, mouseX, mouseY, button))
         {
-            boolean handled = screen.mouseClicked(mouseX, mouseY, button);
+            boolean handled = screen.mouseClicked(mouseX, mouseY, button, isDoubleClick);
             ClientHooks.onScreenMouseClickedPost(screen, mouseX, mouseY, button, handled);
         }
     }

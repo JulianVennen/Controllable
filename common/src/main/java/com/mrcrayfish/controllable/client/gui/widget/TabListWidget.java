@@ -55,9 +55,9 @@ public class TabListWidget extends AbstractWidget implements ContainerEventHandl
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button)
+    public boolean mouseClicked(double mouseX, double mouseY, int button, boolean isDoubleClick)
     {
-        return this.list.mouseClicked(mouseX, mouseY, button);
+        return this.list.mouseClicked(mouseX, mouseY, button, isDoubleClick);
     }
 
     @Override

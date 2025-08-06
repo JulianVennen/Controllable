@@ -19,12 +19,12 @@ public class ArchitecturySupport
         ClientScreenInputEvent.MOUSE_RELEASED_POST.invoker().mouseReleased(mc, screen, mouseX, mouseY, button);
     }
 
-    public static void sendScreenMouseClick(Screen screen, double mouseX, double mouseY, int button)
+    public static void sendScreenMouseClick(Screen screen, double mouseX, double mouseY, int button, boolean isDoubleClick)
     {
         Minecraft mc = Minecraft.getInstance();
         if(ClientScreenInputEvent.MOUSE_CLICKED_PRE.invoker().mouseClicked(mc, screen, mouseX, mouseY, button).isPresent())
             return;
-        if(screen.mouseClicked(mouseX, mouseY, button))
+        if(screen.mouseClicked(mouseX, mouseY, button, isDoubleClick))
             return;
         ClientScreenInputEvent.MOUSE_CLICKED_POST.invoker().mouseClicked(mc, screen, mouseX, mouseY, button);
     }

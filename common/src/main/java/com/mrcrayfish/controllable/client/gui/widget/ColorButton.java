@@ -53,10 +53,10 @@ public class ColorButton extends Button
     }
 
     @Override
-    public void onClick(double mouseX, double mouseY)
+    public void onClick(double mouseX, double mouseY, boolean isDoubleClick)
     {
         this.index = (this.index + 1) % COLORS.length;
-        super.onClick(mouseX, mouseY);
+        super.onClick(mouseX, mouseY, isDoubleClick);
     }
 
     @Override

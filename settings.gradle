@@ -66,4 +66,4 @@ def includeModloader(String name) {
 rootProject.name = 'Controllable'
 include("common")
 includeModloader("fabric")
-includeModloader("neoforge")
+//includeModloader("neoforge")

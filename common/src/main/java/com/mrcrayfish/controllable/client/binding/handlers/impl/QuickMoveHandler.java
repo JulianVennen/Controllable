@@ -18,7 +18,8 @@ public class QuickMoveHandler extends OnPressHandler
         return context.screen().map(screen -> () -> {
             context.player().ifPresent(player -> {
                 if(player.inventoryMenu.getCarried().isEmpty()) {
-                    MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_LEFT);
+                    // TODO: fix double click parameter
+                    MouseHooks.invokeMouseClick(screen, GLFW.GLFW_MOUSE_BUTTON_LEFT, false);
                 } else {
                     MouseHooks.invokeMouseReleased(screen, GLFW.GLFW_MOUSE_BUTTON_RIGHT);
                 }
