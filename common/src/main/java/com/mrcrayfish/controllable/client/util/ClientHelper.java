@@ -1,13 +1,11 @@
 package com.mrcrayfish.controllable.client.util;
 
 import com.mrcrayfish.controllable.Config;
-import com.mrcrayfish.controllable.client.input.Buttons;
 import com.mrcrayfish.controllable.client.settings.ButtonIcons;
 import com.mrcrayfish.controllable.client.gui.Icons;
 import com.mrcrayfish.controllable.mixin.client.OverlayRecipeComponentAccessor;
 import com.mrcrayfish.controllable.platform.ClientServices;
 import com.mrcrayfish.controllable.util.Utils;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.GuiMessage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
@@ -35,28 +33,14 @@ public class ClientHelper
     public static final ResourceLocation ICON_FONT = Utils.resource("icons");
     public static final ResourceLocation BUTTON_FONT = Utils.resource("buttons");
 
-    public static MutableComponent getIconComponent(Icons icon)
-    {
-        MutableComponent component = Component.literal(String.valueOf((char) (33 + icon.ordinal())));
-        component.setStyle(component.getStyle().withColor(ChatFormatting.WHITE).withFont(ClientHelper.ICON_FONT));
-        return component;
-    }
-
-    public static MutableComponent getButtonComponent(int button)
-    {
-        MutableComponent component = Component.literal(String.valueOf((char) (33 + (Config.CLIENT.options.controllerIcons.get().ordinal() * Buttons.LENGTH + button))));
-        component.setStyle(component.getStyle().withColor(ChatFormatting.WHITE).withFont(ClientHelper.BUTTON_FONT));
-        return component;
-    }
-
     public static MutableComponent join(int button, Component label)
     {
-        return Component.empty().append(getButtonComponent(button)).append(" ").append(label);
+        return Component.empty().append(ClientServices.CLIENT.getButtonComponent(button)).append(" ").append(label);
     }
 
     public static MutableComponent join(Icons icon, Component label)
     {
-        return Component.empty().append(getIconComponent(icon)).append(" ").append(label);
+        return Component.empty().append(ClientServices.CLIENT.getIconComponent(icon)).append(" ").append(label);
     }
 
     public static void drawButton(GuiGraphics graphics, int x, int y, int button)

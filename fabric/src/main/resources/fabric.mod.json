@@ -29,7 +29,7 @@
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
         "fabric-api": "*",
-        "minecraft": "${minecraft_version}",
+        "minecraft": ">=1.21.9-alpha.25.32.a",
         "java": ">=21",
         "framework": ">=${framework_version}"
     },
@@ -54,4 +54,3 @@
         }
     }
 }
-  

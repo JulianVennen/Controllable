@@ -15,6 +15,7 @@ import com.mrcrayfish.controllable.client.gui.widget.ButtonBindingButton;
 import com.mrcrayfish.controllable.client.gui.widget.ImageButton;
 import com.mrcrayfish.controllable.client.input.Controller;
 import com.mrcrayfish.controllable.client.util.ClientHelper;
+import com.mrcrayfish.controllable.platform.ClientServices;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -144,10 +145,10 @@ public class ButtonBindingList extends TabSelectionList<TabSelectionList.BaseIte
             if(controller != null && controller.isBeingUsed())
             {
                 List<Component> components = new ArrayList<>();
-                components.add(Component.translatable("controllable.gui.change_binding", ClientHelper.getButtonComponent(Buttons.A)).withStyle(ChatFormatting.YELLOW));
+                components.add(Component.translatable("controllable.gui.change_binding", ClientServices.CLIENT.getButtonComponent(Buttons.A)).withStyle(ChatFormatting.YELLOW));
                 if(!binding.isUnbound())
                 {
-                    components.add(Component.translatable("controllable.gui.clear_binding", ClientHelper.getButtonComponent(Buttons.X)).withStyle(ChatFormatting.YELLOW));
+                    components.add(Component.translatable("controllable.gui.clear_binding", ClientServices.CLIENT.getButtonComponent(Buttons.X)).withStyle(ChatFormatting.YELLOW));
                 }
                 return components;
             }

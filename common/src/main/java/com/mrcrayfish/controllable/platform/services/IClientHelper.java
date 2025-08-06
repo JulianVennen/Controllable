@@ -1,6 +1,7 @@
 package com.mrcrayfish.controllable.platform.services;
 
 import com.mrcrayfish.controllable.client.binding.context.BindingContext;
+import com.mrcrayfish.controllable.client.gui.Icons;
 import com.mrcrayfish.controllable.client.gui.navigation.NavigationPoint;
 import net.minecraft.client.GuiMessage;
 import net.minecraft.client.KeyMapping;
@@ -15,6 +16,7 @@ import net.minecraft.client.gui.screens.inventory.StonecutterScreen;
 import net.minecraft.client.player.ClientInput;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.inventory.Slot;
 import org.jetbrains.annotations.Nullable;
@@ -107,4 +109,8 @@ public interface IClientHelper
     boolean canLocalPlayerStartSprinting(LocalPlayer player);
 
     boolean isOverlayRecipeButtonCraftable(AbstractWidget widget);
+
+    MutableComponent getIconComponent(Icons icon);
+
+    MutableComponent getButtonComponent(int button);
 }

@@ -5,6 +5,7 @@ import com.mrcrayfish.controllable.Controllable;
 import com.mrcrayfish.controllable.client.binding.ButtonBindings;
 import com.mrcrayfish.controllable.client.input.Controller;
 import com.mrcrayfish.controllable.client.util.ClientHelper;
+import com.mrcrayfish.controllable.platform.ClientServices;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookPage;
 import net.minecraft.network.chat.Component;
@@ -29,9 +30,9 @@ public class FabricRecipeBookPageMixin
         {
             if(components.removeIf(c -> c.getContents() instanceof TranslatableContents t && t.getKey().equals("gui.recipebook.moreRecipes")))
             {
-                components.add(Component.translatable("controllable.tooltip.more_recipes", ClientHelper.getButtonComponent(ButtonBindings.SPLIT_STACK.getButton())).withStyle(ChatFormatting.YELLOW));
+                components.add(Component.translatable("controllable.tooltip.more_recipes", ClientServices.CLIENT.getButtonComponent(ButtonBindings.SPLIT_STACK.getButton())).withStyle(ChatFormatting.YELLOW));
             }
-            components.add(Component.translatable("controllable.tooltip.craft", ClientHelper.getButtonComponent(ButtonBindings.PICKUP_ITEM.getButton())).withStyle(ChatFormatting.YELLOW));
+            components.add(Component.translatable("controllable.tooltip.craft", ClientServices.CLIENT.getButtonComponent(ButtonBindings.PICKUP_ITEM.getButton())).withStyle(ChatFormatting.YELLOW));
         }
         return components;
     }

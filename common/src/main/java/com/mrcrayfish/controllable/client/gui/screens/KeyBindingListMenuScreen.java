@@ -8,6 +8,7 @@ import com.mrcrayfish.controllable.client.gui.Icons;
 import com.mrcrayfish.controllable.client.input.Controller;
 import com.mrcrayfish.controllable.client.util.ClientHelper;
 import com.mrcrayfish.controllable.client.util.ScreenHelper;
+import com.mrcrayfish.controllable.platform.ClientServices;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.client.KeyMapping;
@@ -125,7 +126,7 @@ public abstract class KeyBindingListMenuScreen extends ListMenuScreen
             super(Component.translatable(mapping.getName()));
             this.mapping = mapping;
             Collection<KeyAdapterBinding> bindings = Controllable.getBindingRegistry().getKeyAdapters().values();
-            this.addBinding = Button.builder(ClientHelper.getIconComponent(Icons.ADD), button -> {
+            this.addBinding = Button.builder(ClientServices.CLIENT.getIconComponent(Icons.ADD), button -> {
                 Controllable.getBindingRegistry().addKeyAdapter(new KeyAdapterBinding(-1, this.mapping));
                 KeyBindingItem.this.addBinding.active = false;
                 KeyBindingItem.this.removeBinding.active = true;
@@ -133,7 +134,7 @@ public abstract class KeyBindingListMenuScreen extends ListMenuScreen
             }).size(20, 20).build();
             this.addBinding.setTooltip(Tooltip.create(Component.translatable("controllable.gui.register")));
             this.addBinding.setTooltipDelay(Duration.ofMillis(400));
-            this.removeBinding = Button.builder(ClientHelper.getIconComponent(Icons.CROSS), button -> {
+            this.removeBinding = Button.builder(ClientServices.CLIENT.getIconComponent(Icons.CROSS), button -> {
                 KeyAdapterBinding keyAdapter = Controllable.getBindingRegistry().getKeyAdapterByDescriptionKey(this.mapping.getName() + ".custom");
                 if(keyAdapter != null) {
                     Controllable.getBindingRegistry().removeKeyAdapter(keyAdapter);

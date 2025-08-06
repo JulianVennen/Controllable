@@ -6,6 +6,7 @@ import com.mrcrayfish.controllable.client.gui.screens.ControllerLayoutScreen;
 import com.mrcrayfish.controllable.client.gui.widget.ColorButton;
 import com.mrcrayfish.controllable.client.gui.widget.ImageButton;
 import com.mrcrayfish.controllable.client.util.ClientHelper;
+import com.mrcrayfish.controllable.platform.ClientServices;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -120,7 +121,7 @@ public class RadialItemList extends AbstractSelectionList<RadialItemList.ButtonB
             this.colorButton.setColor(data.getColor());
             this.colorButton.setTooltip(Tooltip.create(Component.translatable("controllable.gui.change_color")));
             this.colorButton.setTooltipDelay(Duration.ofMillis(400));
-            this.deleteButton = Button.builder(ClientHelper.getIconComponent(Icons.CROSS), button -> {
+            this.deleteButton = Button.builder(ClientServices.CLIENT.getIconComponent(Icons.CROSS), button -> {
                 RadialItemList.this.bindings.remove(data);
                 RadialItemList.this.removeEntry(this);
                 RadialItemList.this.setScrollAmount(RadialItemList.this.scrollAmount());

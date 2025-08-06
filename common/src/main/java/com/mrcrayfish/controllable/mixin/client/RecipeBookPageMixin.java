@@ -48,7 +48,7 @@ public class RecipeBookPageMixin
         List<AbstractWidget> recipeButtons = ClientHelper.mixinGetRecipeButtons(this.overlay);
         recipeButtons.stream().filter(AbstractWidget::isHoveredOrFocused).findFirst().ifPresent(btn -> {
             if(ClientServices.CLIENT.isOverlayRecipeButtonCraftable(btn)) {
-                Component craftText = Component.translatable("controllable.tooltip.craft", ClientHelper.getButtonComponent(ButtonBindings.PICKUP_ITEM.getButton())).withStyle(ChatFormatting.YELLOW);
+                Component craftText = Component.translatable("controllable.tooltip.craft", ClientServices.CLIENT.getButtonComponent(ButtonBindings.PICKUP_ITEM.getButton())).withStyle(ChatFormatting.YELLOW);
                 graphics.setTooltipForNextFrame(craftText, mouseX, mouseY);
             }
         });

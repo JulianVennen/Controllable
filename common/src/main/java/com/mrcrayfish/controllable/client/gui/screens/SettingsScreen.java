@@ -14,6 +14,7 @@ import com.mrcrayfish.controllable.client.gui.widget.TabListWidget;
 import com.mrcrayfish.controllable.client.input.AdaptiveControllerManager;
 import com.mrcrayfish.controllable.client.util.ClientHelper;
 import com.mrcrayfish.controllable.client.util.ScreenHelper;
+import com.mrcrayfish.controllable.platform.ClientServices;
 import com.mrcrayfish.framework.api.config.AbstractProperty;
 import com.mrcrayfish.framework.config.FrameworkConfigManager;
 import net.minecraft.ChatFormatting;
@@ -210,7 +211,7 @@ public class SettingsScreen extends Screen
 
     public class ControllerTab extends GridLayoutTab
     {
-        private static final Component TITLE = Component.empty().append(ClientHelper.getIconComponent(Icons.CONTROLLER)).append(" ").append(Component.translatable("controllable.settings.tab.controller.title"));
+        private static final Component TITLE = Component.empty().append(ClientServices.CLIENT.getIconComponent(Icons.CONTROLLER)).append(" ").append(Component.translatable("controllable.settings.tab.controller.title"));
 
         public ControllerTab(SettingsScreen screen)
         {
@@ -224,7 +225,7 @@ public class SettingsScreen extends Screen
 
     public class SettingsTab extends GridLayoutTab
     {
-        private static final Component TITLE = Component.empty().append(ClientHelper.getIconComponent(Icons.SETTINGS)).append(" ").append(Component.translatable("controllable.settings.tab.settings.title"));
+        private static final Component TITLE = Component.empty().append(ClientServices.CLIENT.getIconComponent(Icons.SETTINGS)).append(" ").append(Component.translatable("controllable.settings.tab.settings.title"));
 
         public SettingsTab()
         {
@@ -361,7 +362,7 @@ public class SettingsScreen extends Screen
 
     public class BindingsTab extends GridLayoutTab
     {
-        private static final Component TITLE = Component.empty().append(ClientHelper.getIconComponent(Icons.BINDINGS)).append(" ").append(Component.translatable("controllable.settings.tab.bindings.title"));
+        private static final Component TITLE = Component.empty().append(ClientServices.CLIENT.getIconComponent(Icons.BINDINGS)).append(" ").append(Component.translatable("controllable.settings.tab.bindings.title"));
 
         public BindingsTab()
         {

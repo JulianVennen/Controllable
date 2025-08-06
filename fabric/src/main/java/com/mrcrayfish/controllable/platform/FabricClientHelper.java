@@ -1,10 +1,14 @@
 package com.mrcrayfish.controllable.platform;
 
+import com.mrcrayfish.controllable.Config;
 import com.mrcrayfish.controllable.Controllable;
 import com.mrcrayfish.controllable.client.binding.context.BindingContext;
 import com.mrcrayfish.controllable.client.binding.context.GlobalContext;
+import com.mrcrayfish.controllable.client.gui.Icons;
 import com.mrcrayfish.controllable.client.gui.navigation.BasicNavigationPoint;
 import com.mrcrayfish.controllable.client.gui.navigation.NavigationPoint;
+import com.mrcrayfish.controllable.client.input.Buttons;
+import com.mrcrayfish.controllable.client.util.ClientHelper;
 import com.mrcrayfish.controllable.client.util.ReflectUtil;
 import com.mrcrayfish.controllable.integration.ArchitecturySupport;
 import com.mrcrayfish.controllable.platform.services.IClientHelper;
@@ -12,6 +16,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenMouseEvents;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.GuiMessage;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -26,6 +31,8 @@ import net.minecraft.client.gui.screens.recipebook.OverlayRecipeComponent;
 import net.minecraft.client.player.ClientInput;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FontDescription;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.CreativeModeTab;
@@ -366,6 +373,20 @@ public class FabricClientHelper implements IClientHelper
     public boolean isOverlayRecipeButtonCraftable(AbstractWidget widget)
     {
         return widget instanceof OverlayRecipeComponent.OverlayRecipeButton btn && btn.isCraftable;
+    }
+
+    @Override
+    public MutableComponent getIconComponent(Icons icon) {
+        MutableComponent component = Component.literal(String.valueOf((char) (33 + icon.ordinal())));
+        component.setStyle(component.getStyle().withColor(ChatFormatting.WHITE).withFont(new FontDescription.Resource(ClientHelper.ICON_FONT)));
+        return component;
+    }
+
+    @Override
+    public MutableComponent getButtonComponent(int button) {
+        MutableComponent component = Component.literal(String.valueOf((char) (33 + (Config.CLIENT.options.controllerIcons.get().ordinal() * Buttons.LENGTH + button))));
+        component.setStyle(component.getStyle().withColor(ChatFormatting.WHITE).withFont(new FontDescription.Resource(ClientHelper.BUTTON_FONT)));
+        return component;
     }
 
     private BasicNavigationPoint getCreativeTabPoint(AbstractContainerScreen<?> screen, CreativeModeTab tab)
