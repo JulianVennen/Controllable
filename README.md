@@ -30,8 +30,8 @@ Some features are not available on older versions of Controllable. It is recomme
 
 ## Building 
 
+- Set gpr.key and gpr.user in gradle.properties to your GitHub username and a PAT
 - Build Framework locally by running `./gradlew publishToMavenLocal` in https://github.com/JulianVennen/Framework/tree/multiloader/1.21.9
-- Build neoform?
 
 ## Developers
 
